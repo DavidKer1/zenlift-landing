@@ -22,7 +22,7 @@ const features = [
   },
   {
     title: "Personal records",
-    description: "Spot meaningful wins like heavier sets, more reps, and stronger estimated performance.",
+    description: "Spot meaningful wins like heavier sets, more reps, and new PRs.",
     icon: Dumbbell,
   },
   {
@@ -50,7 +50,7 @@ export function FeaturesSection() {
         >
           <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">Features</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-100 mb-4">
-            Everything you need during the session.
+            The essentials for every training session.
           </h2>
           <p className="text-zinc-500 max-w-xl mx-auto text-balance">
             Zenlift focuses on the core training loop: plan the routine, log the workout, review the progress, repeat.
