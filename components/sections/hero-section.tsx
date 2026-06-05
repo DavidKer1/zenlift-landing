@@ -1,22 +1,39 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, Dumbbell } from "lucide-react"
+import { ArrowRight, Dumbbell } from "lucide-react"
 import { LiquidCtaButton } from "@/components/buttons/liquid-cta-button"
 
 const downloadHref = "#"
 
-const activeSets = [
-  { set: "1", previous: "70 kg x 8", current: "72.5 kg x 8", done: true },
-  { set: "2", previous: "70 kg x 8", current: "72.5 kg x 7", done: true },
-  { set: "3", previous: "67.5 kg x 10", current: "72.5 kg x 6", done: false },
-]
+function PhoneFrame({ className = "", priority = false }: { className?: string; priority?: boolean }) {
+  return (
+    <div className={className}>
+      <div className="relative">
+        <div className="absolute -inset-8 rounded-full bg-[#cfbcff]/18 blur-3xl" />
+        <div className="relative rounded-[2.4rem] border border-zinc-800/80 bg-zinc-950 p-2 shadow-[0_40px_120px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+          <div className="overflow-hidden rounded-[2rem] bg-[#16141b]">
+            <Image
+              src="/zenlift-app-home.png"
+              alt="Zenlift app home screen"
+              width={1179}
+              height={2556}
+              priority={priority}
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function WorkoutMockup() {
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto hidden h-[520px] max-w-6xl opacity-70 md:block">
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto hidden h-[680px] max-w-6xl opacity-70 md:block">
       <div className="absolute left-1/2 top-8 h-80 w-80 -translate-x-1/2 rounded-full bg-[#cfbcff]/10 blur-3xl" />
-      <div className="absolute left-10 top-40 w-72 rounded-lg border border-zinc-800/70 bg-zinc-950/80 p-4 shadow-2xl shadow-black/40">
+      <div className="absolute left-10 top-56 w-72 rounded-lg border border-zinc-800/70 bg-zinc-950/80 p-4 shadow-2xl shadow-black/40">
         <div className="mb-4 flex items-center justify-between">
           <span className="text-xs text-zinc-500">Previous session</span>
           <span className="rounded-full bg-zinc-900 px-2 py-1 text-xs text-zinc-500">Push Day</span>
@@ -34,37 +51,10 @@ function WorkoutMockup() {
         ))}
       </div>
 
-      <div className="absolute right-8 top-10 w-[300px] rounded-[2rem] border border-zinc-800 bg-zinc-950 p-3 shadow-2xl shadow-black/50">
-        <div className="rounded-[1.5rem] border border-zinc-800/80 bg-zinc-900/80 p-4">
-          <div className="mb-5 flex items-center justify-between">
-            <div>
-              <p className="text-sm font-semibold text-zinc-100">Active workout</p>
-              <p className="text-xs text-zinc-500">Push Day · 42 min</p>
-            </div>
-            <Dumbbell className="h-5 w-5 text-[#cfbcff]" />
-          </div>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950/80 p-3">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-sm font-semibold text-zinc-100">Bench Press</span>
-              <span className="text-xs text-zinc-500">Last: 70 kg x 8</span>
-            </div>
-            <div className="space-y-2">
-              {activeSets.map((row) => (
-                <div key={row.set} className="grid grid-cols-[32px_1fr_1fr_24px] items-center gap-2 rounded-lg bg-zinc-900 p-2">
-                  <span className="text-xs text-zinc-500">#{row.set}</span>
-                  <span className="text-xs text-zinc-500">{row.previous}</span>
-                  <span className="text-xs font-medium text-zinc-200">{row.current}</span>
-                  <CheckCircle2 className={`h-4 w-4 ${row.done ? "text-emerald-400" : "text-zinc-700"}`} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-4 rounded-lg bg-[#cfbcff] p-3 text-zinc-950">
-            <p className="text-xs font-medium opacity-70">Today</p>
-            <p className="mt-1 text-lg font-bold">2 sets completed</p>
-          </div>
-        </div>
-      </div>
+      <PhoneFrame
+        priority
+        className="absolute right-4 top-[-18px] w-[260px] origin-center [transform:perspective(1100px)_rotateY(-14deg)_rotateZ(6deg)] lg:right-8 lg:w-[300px]"
+      />
     </div>
   )
 }
@@ -106,28 +96,7 @@ export function HeroSection() {
           </Link>
         </div>
 
-        <div className="mx-auto mt-14 max-w-sm rounded-[1.5rem] border border-zinc-800 bg-zinc-950 p-3 text-left shadow-2xl shadow-black/40 md:hidden">
-          <div className="rounded-[1.1rem] border border-zinc-800 bg-zinc-900/80 p-4">
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-semibold text-zinc-100">Active workout</p>
-                <p className="text-xs text-zinc-500">Push Day · 42 min</p>
-              </div>
-              <span className="rounded-full bg-[#cfbcff] px-2 py-1 text-xs font-semibold text-zinc-950">2 sets</span>
-            </div>
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950/80 p-3">
-              <div className="mb-3 flex items-center justify-between">
-                <span className="text-sm font-semibold text-zinc-100">Bench Press</span>
-                <span className="text-xs text-zinc-500">Last: 70 kg x 8</span>
-              </div>
-              <div className="grid grid-cols-[1fr_1fr_24px] items-center gap-2 rounded-lg bg-zinc-900 p-2">
-                <span className="text-xs text-zinc-500">72.5 kg</span>
-                <span className="text-xs font-medium text-zinc-200">8 reps</span>
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <PhoneFrame priority className="mx-auto mt-14 w-[210px] -rotate-3 md:hidden" />
 
         <div className="mt-4 grid grid-cols-1 gap-3 text-left sm:grid-cols-3 md:hidden">
           {[
