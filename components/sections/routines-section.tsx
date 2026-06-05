@@ -5,16 +5,19 @@ const routines = [
     name: "Push/Pull/Legs",
     description: "Organize high-frequency training days without rebuilding the same workout every week.",
     details: ["Push day", "Pull day", "Leg day"],
+    accent: "PPL",
   },
   {
     name: "Upper/Lower",
     description: "Keep strength and hypertrophy work split into simple repeatable sessions.",
     details: ["Upper body", "Lower body", "Flexible weekly rhythm"],
+    accent: "UL",
   },
   {
     name: "Custom routines",
     description: "Create your own days, exercises, target sets, reps, and notes.",
     details: ["Any split", "Any exercise order", "Personal notes"],
+    accent: "01",
   },
 ]
 
@@ -23,7 +26,7 @@ export function RoutinesSection() {
     <section id="routines" className="px-6 py-24">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">Routines</p>
+          <p className="mb-4 text-sm font-medium text-[#cfbcff]">Routines</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-zinc-100 mb-4">
             Build the way you actually train.
           </h2>
@@ -32,9 +35,13 @@ export function RoutinesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-3">
           {routines.map((routine) => (
-            <div key={routine.name} className="p-8 rounded-2xl border flex flex-col h-full bg-zinc-900/50 border-zinc-800/50">
+            <div key={routine.name} className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-800/50 bg-zinc-900/50">
+              <div className="border-b border-zinc-800/50 bg-zinc-950/70 p-6">
+                <span className="font-display text-5xl text-zinc-800">{routine.accent}</span>
+              </div>
+              <div className="flex flex-1 flex-col p-8">
               <div className="mb-6">
                 <h3 className="font-heading text-xl font-semibold mb-2 text-zinc-100">{routine.name}</h3>
                 <p className="text-sm text-zinc-500">{routine.description}</p>
@@ -48,6 +55,7 @@ export function RoutinesSection() {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           ))}
         </div>

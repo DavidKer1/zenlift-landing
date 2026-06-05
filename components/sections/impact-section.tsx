@@ -7,10 +7,10 @@ const problems = [
 
 export function ImpactSection() {
   return (
-    <section className="px-6 py-24 bg-zinc-900/20">
+    <section className="border-y border-zinc-900 bg-zinc-950 px-6 py-24">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">The problem</p>
+          <p className="mb-4 text-sm font-medium text-[#cfbcff]">The problem</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-100 mb-4">
             Progress gets blurry when your workout data is scattered.
           </h2>
@@ -21,13 +21,18 @@ export function ImpactSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {problems.map((problem) => (
+          {problems.map((problem, index) => (
             <div
               key={problem.label}
-              className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/80 transition-all duration-300 text-center"
+              className="group relative min-h-48 overflow-hidden rounded-lg border border-zinc-800/60 bg-zinc-900/40 p-5 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/70"
             >
-              <p className="font-display text-2xl md:text-3xl font-bold text-zinc-100 mb-2">{problem.label}</p>
-              <p className="text-sm text-zinc-500">{problem.description}</p>
+              <span className="absolute right-4 top-4 font-display text-5xl text-zinc-800 transition-colors group-hover:text-zinc-700">
+                0{index + 1}
+              </span>
+              <div className="relative flex h-full flex-col justify-end">
+                <p className="mb-2 font-display text-2xl font-bold text-zinc-100 md:text-3xl">{problem.label}</p>
+                <p className="text-sm leading-relaxed text-zinc-500">{problem.description}</p>
+              </div>
             </div>
           ))}
         </div>

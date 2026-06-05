@@ -1,7 +1,3 @@
-"use client"
-
-import { motion } from "motion/react"
-
 const insights = [
   {
     label: "Volume trend",
@@ -19,40 +15,52 @@ const insights = [
 
 export function ProgressSection() {
   return (
-    <section id="progress" className="px-6 py-24 bg-zinc-900/30">
+    <section id="progress" className="bg-zinc-900/30 px-6 py-24">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-12"
-        >
-          <div className="border border-zinc-800 py-1.5 px-4 rounded-full text-sm text-zinc-400">Progress</div>
+        <div className="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center">
+          <div className="rounded-full border border-zinc-800 px-4 py-1.5 text-sm text-[#cfbcff]">Progress</div>
 
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-zinc-100 mt-6 text-center tracking-tight">
+          <h2 className="font-display mt-6 text-center text-4xl font-bold text-zinc-100 md:text-5xl">
             Progress you can actually read.
           </h2>
           <p className="text-center mt-4 text-zinc-500 text-lg text-balance">
             Zenlift turns workout logs into practical signals: stronger sets, better consistency, and clearer training
             history.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
-          {insights.map((insight, index) => (
-            <motion.div
+        <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-950/70 p-5">
+            <div className="mb-5 flex items-center justify-between">
+              <div>
+                <p className="text-sm font-semibold text-zinc-100">Bench Press</p>
+                <p className="text-xs text-zinc-500">Estimated progress</p>
+              </div>
+              <span className="rounded-full bg-[#cfbcff] px-3 py-1 text-xs font-semibold text-zinc-950">+8%</span>
+            </div>
+            <div className="flex h-44 items-end gap-2">
+              {[35, 48, 42, 58, 64, 72, 78, 84].map((height, index) => (
+                <div key={index} className="h-full flex-1 rounded-t bg-zinc-800">
+                  <div
+                    className="rounded-t bg-gradient-to-t from-zinc-500 to-[#cfbcff]"
+                    style={{ height: `${height}%` }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+          {insights.map((insight) => (
+            <div
               key={insight.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              className="rounded-2xl border border-zinc-800/50 bg-zinc-950/60 p-6"
+              className="rounded-lg border border-zinc-800/50 bg-zinc-950/60 p-5"
             >
-              <p className="text-sm uppercase tracking-wider text-zinc-600 mb-4">{insight.label}</p>
-              <p className="font-display text-2xl text-zinc-100 leading-tight">{insight.text}</p>
-            </motion.div>
+              <p className="mb-3 text-sm text-zinc-600">{insight.label}</p>
+              <p className="font-display text-xl leading-tight text-zinc-100">{insight.text}</p>
+            </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

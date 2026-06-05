@@ -3,7 +3,6 @@
 import type React from "react"
 
 import { ArrowRight } from "lucide-react"
-import { LiquidMetalBorder } from "@/components/ui/liquid-metal-border"
 import { cn } from "@/lib/utils"
 
 interface LiquidCtaButtonProps {
@@ -19,30 +18,16 @@ export function LiquidCtaButton({ children, className, onClick, theme = "dark" }
   return (
     <button
       onClick={onClick}
-      className={cn("group transition-transform duration-300 hover:scale-105 active:scale-95", className)}
+      className={cn(
+        "group inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 active:scale-95",
+        isLight
+          ? "border-zinc-300 bg-zinc-100 text-zinc-900 hover:bg-white"
+          : "border-zinc-700 bg-zinc-100 text-zinc-950 shadow-[0_0_40px_rgba(207,188,255,0.16)] hover:border-[#cfbcff] hover:bg-white",
+        className,
+      )}
     >
-      <div className={cn("rounded-full", isLight && "shadow-[0_8px_20px_rgba(0,0,0,0.25)]")}>
-        <LiquidMetalBorder borderRadius={9999} borderWidth={2} theme={theme} opacity={1} speed={1.2} scale={3}>
-          <div
-            className={cn(
-              "flex items-center gap-2 px-6 py-3 rounded-full",
-              isLight
-                ? "bg-gradient-to-b from-zinc-100 via-zinc-200 to-zinc-300"
-                : "bg-gradient-to-b from-zinc-800 to-zinc-900",
-            )}
-          >
-            <span className={cn("text-sm font-medium transition-colors", isLight ? "text-zinc-600" : "text-zinc-200")}>
-              {children}
-            </span>
-            <ArrowRight
-              className={cn(
-                "w-5 h-5 group-hover:translate-x-1 transition-all duration-300",
-                isLight ? "text-zinc-600" : "text-zinc-200",
-              )}
-            />
-          </div>
-        </LiquidMetalBorder>
-      </div>
+      <span>{children}</span>
+      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
     </button>
   )
 }

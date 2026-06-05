@@ -7,7 +7,7 @@ const downloadHref = "#"
 export function CtaSection() {
   return (
     <section className="px-6 py-24">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="mx-auto max-w-4xl rounded-lg border border-zinc-800 bg-[radial-gradient(circle_at_top,rgba(207,188,255,0.12),transparent_35%),#09090b] p-8 text-center md:p-14">
         <h2 className="font-display text-4xl md:text-5xl font-bold text-zinc-100 mb-6">
           Bring your workout history to every session.
         </h2>
