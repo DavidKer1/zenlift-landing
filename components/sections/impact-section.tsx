@@ -1,39 +1,33 @@
-const metrics = [
-  { value: "99.99%", label: "Uptime SLA", description: "Enterprise reliability" },
-  { value: "10M+", label: "API Requests/Day", description: "Proven at scale" },
-  { value: "<50ms", label: "Avg Response", description: "Blazing fast" },
-  { value: "150+", label: "Countries", description: "Global reach" },
+const problems = [
+  { label: "Notes", description: "Hard to read when you need last session's numbers." },
+  { label: "Memory", description: "Unreliable once the workout gets heavy." },
+  { label: "Screenshots", description: "Useful once, messy after a few weeks." },
+  { label: "Spreadsheets", description: "Powerful at a desk, awkward between sets." },
 ]
 
 export function ImpactSection() {
   return (
     <section className="px-6 py-24 bg-zinc-900/20">
       <div className="max-w-5xl mx-auto">
-        {/* Impact Section Header */}
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">Our Impact</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-100 mb-4">Trusted by teams worldwide</h2>
-          <p className="text-zinc-500 max-w-lg mx-auto text-balance">
-            Numbers that speak for themselves. See why thousands choose us.
+          <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">The problem</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-100 mb-4">
+            Progress gets blurry when your workout data is scattered.
+          </h2>
+          <p className="text-zinc-500 max-w-2xl mx-auto text-balance">
+            The hard part is not just writing numbers down. It is knowing what to train today, what you lifted last
+            time, and whether you are actually improving.
           </p>
         </div>
 
-        {/* Metrics Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {metrics.map((metric) => (
+          {problems.map((problem) => (
             <div
-              key={metric.label}
-              className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/80 transition-all duration-300 group text-center relative overflow-hidden"
+              key={problem.label}
+              className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/80 transition-all duration-300 text-center"
             >
-              {/* Subtle gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative">
-                <p className="font-display text-3xl md:text-4xl font-bold text-zinc-100 mb-1 group-hover:text-white transition-colors">
-                  {metric.value}
-                </p>
-                <p className="text-sm font-medium text-zinc-400 mb-1">{metric.label}</p>
-                <p className="text-xs text-zinc-600">{metric.description}</p>
-              </div>
+              <p className="font-display text-2xl md:text-3xl font-bold text-zinc-100 mb-2">{problem.label}</p>
+              <p className="text-sm text-zinc-500">{problem.description}</p>
             </div>
           ))}
         </div>

@@ -2,8 +2,8 @@ import { Navbar } from "@/components/ui/navbar"
 import { HeroSection } from "@/components/sections/hero-section"
 import { ImpactSection } from "@/components/sections/impact-section"
 import { FeaturesSection } from "@/components/sections/features-section"
-import { TestimonialsSection } from "@/components/sections/testimonials-section"
-import { PricingSection } from "@/components/sections/pricing-section"
+import { ProgressSection } from "@/components/sections/progress-section"
+import { RoutinesSection } from "@/components/sections/routines-section"
 import { CtaSection } from "@/components/sections/cta-section"
 import { FooterSection } from "@/components/sections/footer-section"
 
@@ -14,8 +14,8 @@ export default function Home() {
       <HeroSection />
       <ImpactSection />
       <FeaturesSection />
-      <TestimonialsSection />
-      <PricingSection />
+      <ProgressSection />
+      <RoutinesSection />
       <CtaSection />
       <FooterSection />
     </main>
