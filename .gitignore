@@ -7,6 +7,7 @@
 .DS_Store
 .superpowers/
 docs/superpowers/plans/
+Simulator Screenshot*.png
 
 # next.js
 /.next/
