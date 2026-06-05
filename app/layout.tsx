@@ -11,10 +11,10 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: "Liquid Metal Buttons | Premium UI Components",
+  title: "Zenlift | Workout Tracking for Real Gym Sessions",
   description:
-    "A collection of premium button components featuring animated liquid metal borders powered by Paper Shaders.",
-  generator: "v0.app",
+    "Create routines, log sets, check previous lifts, and track workout progress from your phone.",
+  generator: "Next.js",
   icons: {
     icon: [
       {

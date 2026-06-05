@@ -1,7 +1,7 @@
 # Tasks
 
-- [ ] Update package identity.
-- [ ] Replace root metadata with Zenlift metadata.
-- [ ] Replace navbar Acme/template links with Zenlift links.
-- [ ] Replace footer Acme/template links with Zenlift links.
-- [ ] Validate the change strictly.
+- [x] Update package identity.
+- [x] Replace root metadata with Zenlift metadata.
+- [x] Replace navbar Acme/template links with Zenlift links.
+- [x] Replace footer Acme/template links with Zenlift links.
+- [x] Validate the change strictly.
