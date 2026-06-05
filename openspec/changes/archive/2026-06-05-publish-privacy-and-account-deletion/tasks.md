@@ -1,0 +1,6 @@
+- [x] Remove unused Vercel Analytics from layout and dependencies.
+- [x] Add shared legal page layout primitives.
+- [x] Replace `/privacy` shell with publishable Privacy Policy content.
+- [x] Add `/delete-account` account deletion route.
+- [x] Sync `privacy-route` main spec with the new requirements.
+- [x] Run build, text checks, and browser visual verification; document lint setup blocker.

@@ -1,10 +1,4 @@
-# privacy-route Spec
-
-## Purpose
-
-Define Zenlift's public privacy and account deletion routes for Google Play policy review.
-
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Privacy route shell
 
@@ -30,6 +24,8 @@ The landing footer SHALL link to `/privacy` without presenting privacy as a home
 - **WHEN** a user views the footer
 - **THEN** a Privacy link is available
 - **AND** no homepage section markets privacy as a primary feature.
+
+## ADDED Requirements
 
 ### Requirement: Account deletion route
 
