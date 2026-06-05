@@ -1,6 +1,6 @@
 # Tasks
 
-- [ ] Generate icon PNG assets from `public/zenlift.png`.
-- [ ] Replace SVG icon with a Zenlift mark.
-- [ ] Add logo image usage to navbar and footer.
-- [ ] Validate assets and metadata references.
+- [x] Generate icon PNG assets from `public/zenlift.png`.
+- [x] Replace SVG icon with a Zenlift mark.
+- [x] Add logo image usage to navbar and footer.
+- [x] Validate assets and metadata references.

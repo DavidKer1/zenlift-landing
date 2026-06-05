@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const footerLinks = {
   product: [
@@ -16,8 +17,9 @@ export function FooterSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-2">
-            <Link href="/" className="font-display text-xl font-semibold text-zinc-100">
-              Zenlift
+            <Link href="/" className="font-display flex items-center gap-3 text-xl font-semibold text-zinc-100">
+              <Image src="/zenlift.png" alt="" width={32} height={32} className="rounded-lg" />
+              <span>Zenlift</span>
             </Link>
             <p className="mt-4 text-sm text-zinc-500 max-w-xs">
               Workout tracking for real gym sessions.
