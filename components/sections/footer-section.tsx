@@ -7,7 +7,11 @@ const footerLinks = {
     { label: "Progress", href: "#progress" },
     { label: "Routines", href: "#routines" },
   ],
-  legal: [{ label: "Privacy", href: "/privacy" }],
+  legal: [
+    { label: "Support", href: "/support" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Delete data", href: "/delete-account" },
+  ],
 }
 
 export function FooterSection() {
@@ -21,7 +25,7 @@ export function FooterSection() {
               <Image src="/zenlift.png" alt="" width={32} height={32} className="rounded-lg" />
               <span>Zenlift</span>
             </Link>
-            <p className="mt-4 text-sm text-zinc-500 max-w-xs">
+            <p className="mt-4 text-sm text-zinc-400 max-w-xs">
               Workout tracking for real gym sessions.
             </p>
           </div>
@@ -32,7 +36,7 @@ export function FooterSection() {
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                  <Link href={link.href} className="text-sm text-zinc-400 hover:text-zinc-300 transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -42,11 +46,11 @@ export function FooterSection() {
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-heading text-sm font-semibold text-zinc-100 mb-4">Legal</h4>
+            <h4 className="font-heading text-sm font-semibold text-zinc-100 mb-4">Support &amp; legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                  <Link href={link.href} className="text-sm text-zinc-400 hover:text-zinc-300 transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -57,7 +61,7 @@ export function FooterSection() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-zinc-600">
+          <p className="text-sm text-zinc-400">
             © {new Date().getFullYear()} Zenlift. All rights reserved.
           </p>
         </div>

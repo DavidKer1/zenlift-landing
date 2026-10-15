@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
 import { LenisProvider } from "@/components/providers/lenis-provider"
+import "lenis/dist/lenis.css"
 import "./globals.css"
 
 const manrope = Manrope({

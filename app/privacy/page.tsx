@@ -1,123 +1,163 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { LegalList, LegalPage, LegalSection } from "@/components/legal/legal-page"
+import { operator } from "@/lib/operator"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Zenlift",
   description:
-    "Learn how Zenlift handles account information, workout data, Firebase cloud sync, and account deletion.",
+    "How Zenlift keeps workouts on your device, handles optional diagnostics and exercise media, and lets you export or delete data.",
 }
-
-const contactEmail = "dev@victorsanchez.mx"
 
 export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      effectiveDate="June 5, 2026"
+      effectiveDate="October 14, 2026"
       intro={
         <>
           <p>
-            This Privacy Policy explains how Zenlift handles information when you use the Zenlift mobile app and related
-            public web pages.
+            This policy covers the current local-first version of the Zenlift mobile app and our public website.
+            Zenlift helps you create routines, log sets, and review progress. This version does not require an account
+            and does not sync your workouts to a Zenlift server.
           </p>
           <p>
-            Zenlift is a workout tracking app for creating routines, logging sets, reviewing progress, and syncing your
-            training data across devices.
+            Zenlift is operated by {operator.legalName}, based in {operator.country}. For privacy or support questions,
+            contact{" "}
+            <a href={`mailto:${operator.contactEmail}`} className="break-words font-medium text-zinc-100 underline underline-offset-4">
+              {operator.contactEmail}
+            </a>
+            .
           </p>
         </>
       }
     >
-      <LegalSection title="Information we collect">
-        <p>When you sign in with Google, Zenlift uses Firebase Authentication to create and manage your account.</p>
-        <LegalList
-          items={[
-            "Account information from Google Sign-In, such as your Firebase user ID, email address, display name, and profile photo if Google provides it.",
-            "Workout data you create in Zenlift, including routines, exercises, workout sessions, sets, notes, personal records, progress data, and app preferences.",
-            "Support information you choose to send us when you contact us by email.",
-          ]}
-        />
-      </LegalSection>
-
-      <LegalSection title="How we use information">
-        <LegalList
-          items={[
-            "To authenticate your account and keep you signed in.",
-            "To save and sync your workout data across devices.",
-            "To restore account-linked training data when you sign in again.",
-            "To maintain Zenlift functionality and respond to support requests.",
-          ]}
-        />
-      </LegalSection>
-
-      <LegalSection title="Firebase and Google services">
+      <LegalSection title="How your workout data is stored">
         <p>
-          Zenlift uses Firebase services provided by Google for authentication and cloud data storage or sync. Firebase
-          may process account and app data as part of providing those services.
+          Routines, exercises, workout sessions, sets, repetitions, weights, notes, personal records, body weight,
+          goals, units, language, appearance, and preferences are stored in the app&apos;s local database or device
+          preferences. The core workout flow works without an internet connection.
         </p>
         <p>
-          Your use of Google Sign-In is also subject to Google&apos;s own privacy practices. You can review Google&apos;s
-          Privacy Policy at{" "}
+          Device-level backups and transfers may also copy app data, depending on your operating system and backup
+          settings. These are separate from Zenlift-managed storage or synchronization.
+        </p>
+        <p>
+          You can export a backup from Settings and choose where to keep it. Exported files may contain your workout
+          content, so protect them and share them only when you intend to. Importing a supported backup restores
+          missing data without automatically erasing existing workouts. Diagnostic consent stays on the device and
+          cannot be changed by importing a backup.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Exercise pictures and demonstrations">
+        <p>
+          When connected, the Exercise Library and Exercise Detail screens may request pictures or demonstrations
+          from Google Firebase Storage. A request contains a readable exercise-media identifier, such as bench-press,
+          and ordinary network information such as your IP address. Google can therefore process which demonstration
+          was requested.
+        </p>
+        <p>
+          These requests do not include routine or session identifiers, sets, repetitions, weights, notes, or body
+          weight. Routine screens, the exercise picker, and Active Workout use local placeholders; adding an exercise
+          to a routine or workout does not itself request that exercise&apos;s media.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Optional diagnostics">
+        <p>
+          Diagnostics are off by default. If you turn them on in Settings, Zenlift uses Firebase Analytics and Firebase
+          Crashlytics to understand app usage and improve stability. Depending on the service, diagnostics include:
+        </p>
+        <LegalList
+          items={[
+            "General events such as completing onboarding, choosing a starter routine, starting or finishing a workout, completing a first set, and viewing history details.",
+            "Standard lifecycle and engagement events collected by Firebase Analytics while enabled.",
+            "Crash reports, stack traces, app and operating-system versions, device model, and related technical information generated by the Firebase SDKs.",
+          ]}
+        />
+        <p>
+          Zenlift does not attach workout names, exercise names or identifiers, weights, repetitions, notes, body
+          weight, account information, or backup contents to its analytics events. Advertising identifiers are
+          disabled. Diagnostics are not used for advertising or tracking you across apps.
+        </p>
+        <p>
+          You can turn diagnostics off at any time without losing workout features. Zenlift stops its own events
+          immediately and requests deletion of unsent crash reports. Native crash collection is fully disabled after
+          reopening the app. Turning diagnostics off does not erase information already sent to Firebase; retention
+          of that information depends on the service&apos;s retention settings and terms.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Service providers and the website">
+        <p>
+          Google Firebase provides exercise-media delivery and, when you enable diagnostics, analytics and crash
+          processing. These services may process data outside your country. Google&apos;s privacy information is
+          available at{" "}
           <a href="https://policies.google.com/privacy" className="font-medium text-zinc-100 underline underline-offset-4">
             policies.google.com/privacy
           </a>
           .
         </p>
-      </LegalSection>
-
-      <LegalSection title="Ads and selling data">
         <p>
-          Zenlift does not sell your personal information and does not use your workout data for advertising. Zenlift
-          does not include in-app advertising in the current product scope.
+          Visiting our website also involves hosting and network providers and Google Fonts for page delivery.
+          Providers may receive ordinary request information, including your IP address and browser details. The
+          website does not offer a Zenlift account or upload workouts from your device.
         </p>
-      </LegalSection>
-
-      <LegalSection title="Manual exports">
         <p>
-          If Zenlift lets you export your data, exported files are controlled by you after they are created. You are
-          responsible for where you store, upload, or share exported files.
+          If you contact support, we receive the email address and information you choose to send and use them to
+          respond to your request. Avoid including sensitive workout content unless it is needed and you choose to
+          share it.
         </p>
+        <p>Zenlift does not sell your personal information, include in-app advertising, or share workouts with advertisers.</p>
       </LegalSection>
 
-      <LegalSection title="Permissions">
+      <LegalSection title="Retention, deletion, and your choices">
         <p>
-          Zenlift requests only the permissions needed for app functionality. Zenlift does not request access to your
-          location, contacts, camera, or microphone unless a future feature requires it and this policy is updated.
+          Local data remains on your device until you delete it or the operating system removes it, for example when
+          uninstalling the app. In Zenlift, use Settings → Data → Delete all data, or About &amp; Privacy → Delete all
+          data. Export a backup first if you want to keep a copy. Deletion also clears Zenlift-owned temporary export
+          files; copies you saved or shared elsewhere remain under your control.
         </p>
-      </LegalSection>
-
-      <LegalSection title="Data retention and deletion">
         <p>
-          Zenlift keeps account-linked cloud data while your account is active. You can request deletion of your Zenlift
-          account and associated cloud data from the{" "}
+          Zenlift does not provide cloud backup or account-based recovery for the current local version. Deleting local data does not remove
+          diagnostics already sent to Firebase. For questions about diagnostic data or other privacy requests,
+          contact {operator.contactEmail}. Diagnostic records are not linked to a Zenlift account, so we may not be
+          able to identify a particular record from your email address.
+        </p>
+        <p>
+          If you previously used an account-enabled version, see the{" "}
           <Link href="/delete-account" className="font-medium text-zinc-100 underline underline-offset-4">
-            account deletion page
-          </Link>
-          .
+            data and account deletion page
+          </Link>{" "}
+          for the separate email request path. Deleting this version&apos;s local data does not delete a legacy cloud
+          account or data held by Google independently of Zenlift.
         </p>
+      </LegalSection>
+
+      <LegalSection title="Security">
         <p>
-          When your Zenlift account is deleted, we delete associated cloud data from Zenlift systems, subject to limited
-          retention if required for legal, security, fraud prevention, or abuse-prevention reasons.
+          Zenlift limits collection, keeps the core training log local, uses operating-system storage controls, and
+          uses encrypted transport for Firebase requests. No storage or transmission method is completely secure.
+          Protect access to your device and exported backups.
         </p>
       </LegalSection>
 
       <LegalSection title="Children">
-        <p>Zenlift is not directed to children under 13, and we do not knowingly collect data from children under 13.</p>
+        <p>Zenlift is not directed to children under 13. A higher local minimum age may apply to consent for optional diagnostics.</p>
       </LegalSection>
 
-      <LegalSection title="Changes to this policy">
+      <LegalSection title="Changes and contact">
         <p>
-          We may update this Privacy Policy as Zenlift changes. When we do, we will update the effective date on this
-          page.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Contact">
-        <p>
-          If you have questions about this Privacy Policy, contact us at{" "}
-          <a href={`mailto:${contactEmail}`} className="font-medium text-zinc-100 underline underline-offset-4">
-            {contactEmail}
+          We will update this policy when the product or applicable requirements change and publish the new effective
+          date. Questions and privacy requests can be sent to {operator.legalName}, {operator.country}, at{" "}
+          <a href={`mailto:${operator.contactEmail}`} className="break-words font-medium text-zinc-100 underline underline-offset-4">
+            {operator.contactEmail}
           </a>
+          . You can also visit our{" "}
+          <Link href="/support" className="font-medium text-zinc-100 underline underline-offset-4">
+            support page
+          </Link>
           .
         </p>
       </LegalSection>

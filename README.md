@@ -25,7 +25,7 @@ Zenlift helps gym users create routines, log sets quickly, review previous lifts
 - Built with the Next.js App Router and React Server Components where appropriate.
 - Responsive dark interface with a focused visual system for a fitness product.
 - Real app screenshot integration inside the landing-page hero.
-- Dedicated privacy policy and account deletion routes for app distribution requirements.
+- Dedicated privacy, support, and data-deletion routes for the current local-first mobile app, with an email path for earlier account-enabled versions.
 - Developed with an OpenSpec workflow so product requirements, implementation changes, and specs stay traceable.
 
 ## Tech Stack
@@ -35,7 +35,7 @@ Zenlift helps gym users create routines, log sets quickly, review previous lifts
 - **UI:** React, shadcn/ui, Lucide React
 - **Styling:** Tailwind CSS v4 with CSS-first theme variables
 - **Motion:** Framer Motion and Lenis smooth scrolling
-- **Analytics:** Vercel Analytics
+- **Website analytics integration:** None in this repository. Optional mobile diagnostics are described in the privacy policy.
 - **Deployment:** Vercel
 
 ## Development Process
@@ -44,10 +44,10 @@ This project was developed using OpenSpec. Canonical requirements live in `opens
 
 ## Getting Started
 
-Install dependencies:
+Use Node.js 24 LTS and pnpm 11.25 (the verified local toolchain). Install locked dependencies without package lifecycle scripts; this static export uses unoptimized images and builds without Sharp's install script:
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile --ignore-scripts
 ```
 
 Start the development server:
@@ -61,6 +61,8 @@ Run linting:
 ```bash
 pnpm lint
 ```
+
+ESLint uses the Next.js Core Web Vitals and TypeScript flat configurations. Run `pnpm typecheck` to check TypeScript separately. Production builds also check types; type errors are not ignored.
 
 Create a production build:
 
@@ -83,3 +85,12 @@ public/                 Brand assets, app screenshots, and README previews
 ## Deployment
 
 The project is configured for Vercel deployment. Build the app with `pnpm build`, then deploy through Vercel using the standard Next.js preset.
+
+## Public v1 support and privacy
+
+- `/privacy/`: on-device workout storage, exercise-media requests, optional Firebase diagnostics, exports/deletion, and operator contact.
+- `/support/`: English/Spanish email support, recovery advice, backups and local data actions.
+- `/delete-account/`: the current local data deletion paths and a retained email request for earlier account-enabled versions.
+- Operator: Victor David Sanchez García, Mexico, [dev@victorsanchez.mx](mailto:dev@victorsanchez.mx), centralized in `lib/operator.ts`.
+
+The 2026-10-14 update follows the approved local-first mobile v1 scope and supersedes the June account/cloud-sync assumptions in archived designs. Keep the policy effective date, operator-specific retention/settings, applicable regional disclosures and legacy account request handling current. Do not invent a Firebase retention period or claim that local deletion erases previously transmitted diagnostics. Revalidate the live URLs after each deployment and include them in the mobile builds only once the public documents match the release.

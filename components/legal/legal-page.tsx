@@ -33,12 +33,17 @@ export function LegalPage({ title, effectiveDate, intro, children }: LegalPagePr
         <header className="mt-12 border-b border-zinc-800 pb-8">
           <h1 className="font-display text-4xl font-semibold tracking-normal text-white sm:text-5xl">{title}</h1>
           {effectiveDate ? (
-            <p className="mt-4 text-sm font-medium text-zinc-500">Effective date: {effectiveDate}</p>
+            <p className="mt-4 text-sm font-medium text-zinc-400">Effective date: {effectiveDate}</p>
           ) : null}
           <div className="mt-6 space-y-4 text-base leading-7 text-zinc-300">{intro}</div>
         </header>
 
         <div className="space-y-10 py-10">{children}</div>
+        <nav aria-label="Support and privacy" className="flex flex-wrap gap-x-6 gap-y-3 border-t border-zinc-800 pt-6 text-sm text-zinc-400">
+          <Link href="/support" className="py-2 hover:text-white">Support</Link>
+          <Link href="/privacy" className="py-2 hover:text-white">Privacy Policy</Link>
+          <Link href="/delete-account" className="py-2 hover:text-white">Delete data</Link>
+        </nav>
       </article>
     </main>
   )
