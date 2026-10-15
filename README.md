@@ -36,7 +36,7 @@ Zenlift helps gym users create routines, log sets quickly, review previous lifts
 - **Styling:** Tailwind CSS v4 with CSS-first theme variables
 - **Motion:** Framer Motion and Lenis smooth scrolling
 - **Website analytics integration:** None in this repository. Optional mobile diagnostics are described in the privacy policy.
-- **Deployment:** Vercel
+- **Deployment:** Coolify with Nixpacks and an Nginx static image
 
 ## Development Process
 
@@ -84,7 +84,7 @@ public/                 Brand assets, app screenshots, and README previews
 
 ## Deployment
 
-The project is configured for Vercel deployment. Build the app with `pnpm build`, then deploy through Vercel using the standard Next.js preset.
+Production runs on the existing Coolify application for `zenlift.app`, using `main`, Nixpacks, Node.js 22 and pnpm 9.15.9. The build command is `pnpm build`; the static output directory is `/out`, served by Nginx. `pnpm-workspace.yaml` declares the root package for compatibility with the server's pnpm version. After pushing, verify that Coolify deployed the intended commit and that all public document routes return the current content.
 
 ## Public v1 support and privacy
 
